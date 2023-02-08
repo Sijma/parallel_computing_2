@@ -19,12 +19,14 @@ void construct_grid(int rows, int cols, unsigned int*** grid) {
 }
 
 int main(int argc, char* argv[]) {
-	if(argc != 2){
-		printf("Please provide only a single argument, for the size of the subgrid.\n");
+	if(argc != 3){
+		printf("Please provide only two arguments, for the size of the subgrid and thread count.\n");
 	}
 
 	char *a = argv[1];
 	int subgrid_dimention = atoi(a);
+	char *b = argv[2];
+	int threads = atoi(b);
 	
     unsigned int new_row = ROWS * COLS;
     unsigned int new_col = subgrid_dimention * subgrid_dimention;
@@ -33,7 +35,7 @@ int main(int argc, char* argv[]) {
     construct_grid(new_row, new_col, &grid);
 
     double start_time = omp_get_wtime() * 1000;
-    #pragma omp parallel for
+    #pragma omp parallel for num_threads(threads)
     for (unsigned int i = 0; i < new_row; i++) {
         unsigned int max_value = grid[i][0];
         unsigned int sum = 0;
