@@ -1,11 +1,28 @@
 # Parallel Matrix Operations
 This program performs parallel matrix operations using OpenMP. The program constructs a grid of dimensions ROWS x COLS and then performs operations on a subgrid of dimensions `subgrid_dimention` x `subgrid_dimention`. The program calculates the maximum value of each row of the subgrid and the sum of all elements in each row.
 
-## Usage
-To compile the program, run the following command:
+## Getting Started
+
+To get started with this project, simply clone this repository to your local machine.
+
+### Prerequisites
+
+In order to run this project, you must have the OpenMP library installed on your system. 
+
+
+### Installation
+
+1. Clone the repository to your local machine.
+```
+git clone https://github.com/Sijma/parallel_computing_2
+```
+
+2. To compile the program, run the following command:
 ```
 gcc -o assignment2 assignment2.c -fopenmp
 ```
+
+## Usage
 To run the program, use the following command:
 ```
 ./assignment2 <subgrid_dimention> <threads>
